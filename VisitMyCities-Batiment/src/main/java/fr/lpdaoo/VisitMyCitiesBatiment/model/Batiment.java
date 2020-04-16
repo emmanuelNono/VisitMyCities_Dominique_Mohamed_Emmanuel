@@ -1,4 +1,4 @@
-package com.example.VisitMyCitiesBatiment;
+package fr.lpdaoo.VisitMyCitiesBatiment.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,6 +26,10 @@ public class Batiment {
 		super();
 	}
 	
+	public Batiment(Integer bat_id) {
+		super();
+		this.bat_id = bat_id;
+	}
 	
 	
 	public Integer getBat_id() {

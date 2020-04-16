@@ -1,4 +1,4 @@
-package com.example.VisitMyCitiesBatiment;
+package fr.lpdaoo.VisitMyCitiesBatiment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
