@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,11 +12,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import fr.lpdaoo.VisitMyCitiesBatiment.model.Batiment;
 import fr.lpdaoo.VisitMyCitiesBatiment.model.DAO.*;
 
-@Controller
+@RestController
 @RequestMapping(path="/batiments")
 public class BatimentController {
 
@@ -86,11 +86,9 @@ public class BatimentController {
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity <Batiment> deleteBatiment(@PathVariable int id) {
-		if (batimentRepository.findAll().size() < id)
-		{
+		if (batimentRepository.findById(id).isEmpty())  {
 			return ResponseEntity.badRequest().build();
 		}
-		
 		batimentRepository.deleteById(id);
 		return ResponseEntity.ok().build();		
 	} 

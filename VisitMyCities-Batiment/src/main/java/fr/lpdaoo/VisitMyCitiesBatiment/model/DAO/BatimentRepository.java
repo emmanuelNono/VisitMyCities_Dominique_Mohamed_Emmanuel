@@ -1,7 +1,8 @@
-package com.example.VisitMyCitiesBatiment;
+package fr.lpdaoo.VisitMyCitiesBatiment.model.DAO;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import fr.lpdaoo.VisitMyCitiesBatiment.model.Batiment;
 
-public interface BatimentRepository extends CrudRepository<Batiment, Integer>{
+public interface BatimentRepository extends JpaRepository<Batiment, Integer>{
 
 }
