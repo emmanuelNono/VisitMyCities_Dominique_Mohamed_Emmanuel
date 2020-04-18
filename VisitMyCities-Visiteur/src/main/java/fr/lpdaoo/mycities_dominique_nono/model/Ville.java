@@ -14,7 +14,7 @@ public class Ville {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String vilNom;
-	private int visCp;
+	private int vilCp;
 	@OneToMany(mappedBy = "ville")
 	private List<Visiteur> visiteurs;
 
@@ -23,11 +23,11 @@ public class Ville {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Ville(Long id, String vilNom, int visCp) {
+	public Ville(Long id, String vilNom, int vilCp) {
 		super();
 		this.id = id;
 		this.vilNom = vilNom;
-		this.visCp = visCp;
+		this.vilCp = vilCp;
 	}
 
 	public Long getId() {
@@ -46,17 +46,17 @@ public class Ville {
 		this.vilNom = vilNom;
 	}
 
-	public int getVisCp() {
-		return visCp;
+	public int getVilCp() {
+		return vilCp;
 	}
 
-	public void setVisCp(int visCp) {
-		this.visCp = visCp;
+	public void setVilCp(int vilCp) {
+		this.vilCp = vilCp;
 	}
 
 	@Override
 	public String toString() {
-		return "Ville [id=" + id + ", vilNom=" + vilNom + ", visCp=" + visCp + "]";
+		return "Ville [id=" + id + ", vilNom=" + vilNom + ", vilCp=" + vilCp + "]";
 	}
 
 }
