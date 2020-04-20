@@ -32,4 +32,4 @@ build/
 
 ### maven ###
 VisitMyCities-Visiteur/.project
-VisitMyCities-Visiteur/.target/
+VisitMyCities-Visiteur/target/*
