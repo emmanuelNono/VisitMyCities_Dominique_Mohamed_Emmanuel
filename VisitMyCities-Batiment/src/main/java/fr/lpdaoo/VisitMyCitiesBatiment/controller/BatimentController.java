@@ -45,15 +45,15 @@ public class BatimentController {
 			)
 	{
 		Batiment b = new Batiment();
-		b.setBat_nom(bat_nom);
-		b.setBat_adresse(bat_adresse);
-		b.setBat_coord_gps_ns(bat_coord_gps_ns);
-		b.setBat_coord_gps_oe(bat_coord_gps_oe);
-		b.setBat_annee_construction(bat_annee_construction);
-		b.setBat_couleur(bat_couleur);
-		b.setBat_description(bat_description);
-		b.setBat_architecte(bat_architecte);
-		b.setBat_ville(bat_ville);
+		b.setNom(bat_nom);
+		b.setAdresse(bat_adresse);
+		b.setCoord_gps_ns(bat_coord_gps_ns);
+		b.setCoord_gps_oe(bat_coord_gps_oe);
+		b.setAnnee_construction(bat_annee_construction);
+		b.setCouleur(bat_couleur);
+		b.setDescription(bat_description);
+		b.setArchitecte(bat_architecte);
+		b.setVille(bat_ville);
 		batimentRepository.save(b);
 		return "Saved";
 	}
@@ -69,15 +69,15 @@ public class BatimentController {
 			@RequestParam Integer bat_ville)
 	{
 		Batiment b = new Batiment(id);
-		b.setBat_nom(bat_nom);
-		b.setBat_adresse(bat_adresse);
-		b.setBat_coord_gps_ns(bat_coord_gps_ns);
-		b.setBat_coord_gps_oe(bat_coord_gps_oe);
-		b.setBat_annee_construction(bat_annee_construction);
-		b.setBat_couleur(bat_couleur);
-		b.setBat_description(bat_description);
-		b.setBat_architecte(bat_architecte);
-		b.setBat_ville(bat_ville);
+		b.setNom(bat_nom);
+		b.setAdresse(bat_adresse);
+		b.setCoord_gps_ns(bat_coord_gps_ns);
+		b.setCoord_gps_oe(bat_coord_gps_oe);
+		b.setAnnee_construction(bat_annee_construction);
+		b.setCouleur(bat_couleur);
+		b.setDescription(bat_description);
+		b.setArchitecte(bat_architecte);
+		b.setVille(bat_ville);
 		batimentRepository.save(b);
 		return "Updated";
 	}	
