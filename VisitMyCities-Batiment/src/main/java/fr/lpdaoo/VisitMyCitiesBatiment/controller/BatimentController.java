@@ -26,10 +26,19 @@ public class BatimentController {
 	@Autowired
 	private BatimentRepository batimentRepository;
 	
-	@GetMapping("/all")
+	/** 
+	 * 
+	 * @return tous les bâtiments
+	 */
+	@GetMapping("/")
 	public @ResponseBody Iterable<Batiment> getAllBatiments(){
 		return batimentRepository.findAll();
 	}
+	
+	/**
+	 * @param id
+	 * @return le batiment dont l'id a été passé
+	 */
 	
 	@GetMapping("/{id}")
 	public @ResponseBody Optional<Batiment> getBatiment(@PathVariable Integer id) {
@@ -43,7 +52,20 @@ public class BatimentController {
 	}
 	*/
 	
-	@PostMapping("/add")
+	/**
+	 * creation d'un bâtiment
+	 * @param nom
+	 * @param adresse
+	 * @param coord_gps_ns
+	 * @param coord_gps_oe
+	 * @param annee_construction
+	 * @param couleur
+	 * @param description
+	 * @param architecte
+	 * @param ville
+	 * @return une chaîne indiquand que le bâtiment a bien été crée
+	 */
+	@PostMapping("/")
 	public @ResponseBody String addNewBatiment(
 			@RequestParam String nom, @RequestParam String adresse, 
 			@RequestParam String coord_gps_ns, 
@@ -64,9 +86,23 @@ public class BatimentController {
 		b.setArchitecte(architecte);
 		b.setVille(ville);
 		batimentRepository.save(b);
-		return "Saved";
+		return "Added";
 	}
 	
+	/**
+	 * modification d'un bâtiment
+	 * @param id
+	 * @param nom
+	 * @param adresse
+	 * @param coord_gps_ns
+	 * @param coord_gps_oe
+	 * @param annee_construction
+	 * @param couleur
+	 * @param description
+	 * @param architecte
+	 * @param ville
+	 * @return un message qui indique que la bâtiment a bien été mise à jour
+	 */
 	@PutMapping("/{id}")
 	public @ResponseBody String updateBatiment(
 			@PathVariable Integer id, 
@@ -91,6 +127,11 @@ public class BatimentController {
 		return "Updated";
 	}
 	
+	/**
+	 * suppression de bâtiment
+	 * @param id
+	 * @return un mmessage indiquant que le bâtiment a bien été supprimé
+	 */
 	@DeleteMapping("/{id}")
 	public ResponseEntity <Batiment> deleteBatiment(@PathVariable int id) {
 		if (batimentRepository.findById(id).isEmpty())  {

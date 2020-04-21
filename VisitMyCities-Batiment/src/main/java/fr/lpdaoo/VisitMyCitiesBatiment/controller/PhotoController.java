@@ -23,18 +23,32 @@ public class PhotoController {
 	@Autowired
 	private PhotoRepository photoRepository;
 	
+	/**
+	 * affichage des photos
+	 * @return toutes les photos sous forme d'un json
+	 */
 	@GetMapping("/")
 	public @ResponseBody Iterable<Photo> getAllPhotos(){
 		return photoRepository.findAll();
 	}
 	
-		
+	/** 
+	 * affichage d'une photo		
+	 * @param id
+	 * @return les infos de la photo dont l'id est passée en paramètres
+	 */
 	@GetMapping("/{id}")
 	public @ResponseBody Optional<Photo> getPhoto(@PathVariable Integer id) {
 		return photoRepository.findById(id);
 	}
 	
-	@PostMapping("/add")
+	/** 
+	 * ajout d'une photo 
+	 * @param titre
+	 * @param source
+	 * @return un message qui indique que la photo a bien été ajoutée
+	 */
+	@PostMapping("/")
 	public @ResponseBody String addNewhoto(
 			@RequestParam String titre, @RequestParam String source)
 	{
@@ -42,7 +56,7 @@ public class PhotoController {
 		p.setTitre(titre);
 		p.setSource(source);
 		photoRepository.save(p);
-		return "Saved";
+		return "Added";
 	}
 	
 	@PutMapping("/{id}")
