@@ -33,3 +33,7 @@ build/
 ### maven ###
 VisitMyCities-Visiteur/.project
 VisitMyCities-Visiteur/target/*
+*.class
+*.class
+VisitMyCities-Visiteur/target/classes/fr/lpdaoo/mycities_dominique_nono/controller/VisiteurController.class
+VisitMyCities-Visiteur/target/classes/fr/lpdaoo/mycities_dominique_nono/MycitiesDominiqueNonoApplication.class
