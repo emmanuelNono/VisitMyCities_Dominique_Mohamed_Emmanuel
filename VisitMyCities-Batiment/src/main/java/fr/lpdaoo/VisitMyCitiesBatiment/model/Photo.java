@@ -14,7 +14,7 @@ public class Photo implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="pho_id")
-	private int id;
+	private Integer id;
 	
 	@Column(name="pho_titre")
 	private String titre;
@@ -34,8 +34,6 @@ public class Photo implements Serializable{
 		super();
 		this.id = id;
 	}
-
-
 
 	public int getId() {
 		return id;
@@ -61,6 +59,16 @@ public class Photo implements Serializable{
 		this.source = source;
 	}
 
+	public Batiment getBatiment() {
+		return batiment;
+	}
+
+
+	public void setBatiment(Batiment batiment) {
+		this.batiment = batiment;
+	}
+
+	
 	@Override
 	public String toString() {
 		return "Photo [id=" + id + ", titre=" + titre + ", source=" + source + "]";

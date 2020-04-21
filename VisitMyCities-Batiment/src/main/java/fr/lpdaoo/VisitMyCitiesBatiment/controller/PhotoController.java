@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.lpdaoo.VisitMyCitiesBatiment.model.Batiment;
 import fr.lpdaoo.VisitMyCitiesBatiment.model.Photo;
 import fr.lpdaoo.VisitMyCitiesBatiment.model.DAO.PhotoRepository;
 
@@ -24,7 +25,7 @@ public class PhotoController {
 	private PhotoRepository photoRepository;
 	
 	/**
-	 * affichage des photos
+	 * affichage de toutes les photos
 	 * @return toutes les photos sous forme d'un json
 	 */
 	@GetMapping("/")
@@ -43,6 +44,17 @@ public class PhotoController {
 	}
 	
 	/** 
+	 * affichage des photos correspondant à un batiment
+	 * 
+	 */
+	@GetMapping("/batiment/{bat_id}")
+	public @ResponseBody Iterable<Photo> getPhotosBatiment(@PathVariable Integer bat_id){
+		Batiment b = new Batiment(bat_id);
+		return photoRepository.findByBatiment(b);
+	}
+	
+	
+	/** 
 	 * ajout d'une photo 
 	 * @param titre
 	 * @param source
@@ -50,11 +62,14 @@ public class PhotoController {
 	 */
 	@PostMapping("/")
 	public @ResponseBody String addNewhoto(
-			@RequestParam String titre, @RequestParam String source)
+			@RequestParam String titre, @RequestParam String source,
+			@RequestParam Integer bat_id)
 	{
 		Photo p = new Photo();
 		p.setTitre(titre);
 		p.setSource(source);
+		Batiment b = new Batiment(bat_id);
+		p.setBatiment(b);		
 		photoRepository.save(p);
 		return "Added";
 	}
@@ -62,11 +77,14 @@ public class PhotoController {
 	@PutMapping("/{id}")
 	public @ResponseBody String updatePhoto(
 			@PathVariable Integer id, 
-			@RequestParam String titre, @RequestParam String source)
+			@RequestParam String titre, @RequestParam String source,
+			@RequestParam Integer bat_id)
 	{
 		Photo p = new Photo(id);
 		p.setTitre(titre);
 		p.setSource(source);
+		Batiment b = new Batiment(bat_id);
+		p.setBatiment(b);
 		photoRepository.save(p);
 		return "Updated";
 	}	

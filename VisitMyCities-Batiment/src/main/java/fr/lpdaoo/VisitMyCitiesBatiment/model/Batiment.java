@@ -82,7 +82,7 @@ public class Batiment implements Serializable{
 	public void setCoord_gps_ns(String coord_gps_ns) {
 		this.coord_gps_ns = coord_gps_ns;
 	}
-	public String getCoordGpsOe() {
+	public String getCoord_gps_oe() {
 		return coord_gps_oe;
 	}
 	public void setCoord_gps_oe(String coord_gps_oe) {
