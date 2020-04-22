@@ -19,12 +19,12 @@ public class Visiteur {
 	private String visVille;
 	private String visEmail;
 	private String visMdp;
-	@ManyToOne	@JoinColumn(name = "idVille")
-	private Ville ville;
+	@ManyToOne	@JoinColumn(name = "idVille") 
+	private Ville ville; //correspond à la ville de la classe Ville
 
 	public Visiteur() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Visiteur(Long id, String visNom, String visPrenom, String visAdresse, int visCp, String visVille,
