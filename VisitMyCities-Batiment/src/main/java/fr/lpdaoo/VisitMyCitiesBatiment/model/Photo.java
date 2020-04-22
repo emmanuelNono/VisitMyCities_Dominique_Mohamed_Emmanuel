@@ -19,7 +19,7 @@ public class Photo implements Serializable{
 	@Column(name="pho_titre")
 	private String titre;
 	
-	@Column(name="pho_source")
+	@Column(name="pho_source", columnDefinition = "TEXT")
 	private String source;
 
 	@ManyToOne
