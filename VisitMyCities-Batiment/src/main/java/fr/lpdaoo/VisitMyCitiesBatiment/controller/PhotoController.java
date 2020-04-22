@@ -2,7 +2,10 @@ package fr.lpdaoo.VisitMyCitiesBatiment.controller;
 
 import java.util.Optional;
 
+import javax.persistence.EntityManager;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +26,7 @@ import fr.lpdaoo.VisitMyCitiesBatiment.model.DAO.PhotoRepository;
 public class PhotoController {
 	@Autowired
 	private PhotoRepository photoRepository;
+	private EntityManager em;
 	
 	/**
 	 * affichage de toutes les photos

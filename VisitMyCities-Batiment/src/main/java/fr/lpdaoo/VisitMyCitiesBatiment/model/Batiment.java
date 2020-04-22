@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 
@@ -36,7 +37,7 @@ public class Batiment implements Serializable{
 	@Column(name="bat_couleur")
 	private String couleur;
 	
-	@Column(name="bat_description")
+	@Column(name="bat_description", columnDefinition = "TEXT")
 	private String description;
 	
 	@Column(name="bat_architecte")
@@ -45,7 +46,7 @@ public class Batiment implements Serializable{
 	@Column(name="bat_ville")
 	private Integer ville;
 	
-	@OneToMany
+	@OneToMany @JoinColumn(name="pho_id")
 	private Collection<Photo> photos;
 	
 	public Batiment() {
