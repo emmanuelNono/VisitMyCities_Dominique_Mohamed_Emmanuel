@@ -11,10 +11,10 @@ import java.util.Optional;
 @FeignClient(name = "microservice-produits", url = "localhost:9001")
 public interface MicroserviceProduitsProxy {
 
-	@GetMapping(value = "/Produits")
+	@GetMapping(value = "/produits")
 	List<ProductBean> listeDesProduits();
 	
-	@GetMapping( value = "/Produits/{id}")
+	@GetMapping( value = "/produits/{id}")
 	ProductBean recupererUnProduit(@PathVariable("id") int id);
 
 }
