@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.lpdaoo.VisitMyCitiesBatiment.exceptions.BatimentIntrouvableException;
+import fr.lpdaoo.VisitMyCitiesBatiment.exceptions.PhotoIntrouvableException;
 import fr.lpdaoo.VisitMyCitiesBatiment.model.Batiment;
 import fr.lpdaoo.VisitMyCitiesBatiment.model.Photo;
+import fr.lpdaoo.VisitMyCitiesBatiment.model.DAO.BatimentRepository;
 import fr.lpdaoo.VisitMyCitiesBatiment.model.DAO.PhotoRepository;
 
 @RestController
@@ -26,6 +29,7 @@ public class PhotoController {
 	@Autowired
 	private PhotoRepository photoRepository;
 	private EntityManager em;
+	private BatimentRepository batimentRepository;
 	
 	/**
 	 * affichage de toutes les photos
@@ -40,10 +44,16 @@ public class PhotoController {
 	 * affichage d'une photo		
 	 * @param id
 	 * @return les infos de la photo dont l'id est passée en paramètres
+	 * @throws PhotoIntrouvableException 
 	 */
 	@GetMapping("/{id}")
-	public @ResponseBody Optional<Photo> getPhoto(@PathVariable Integer id) {
-		return photoRepository.findById(id);
+	public @ResponseBody Optional<Photo> getPhoto(@PathVariable Integer id) throws PhotoIntrouvableException {
+		if (photoRepository.findById(id).isPresent()){
+			return photoRepository.findById(id);
+		}
+		else {
+			throw new PhotoIntrouvableException("La photo avec l'id " + id + " n'existe pas.");
+		}
 	}
 	
 	/** 
@@ -52,8 +62,22 @@ public class PhotoController {
 	 */
 	@GetMapping("/batiment/{bat_id}")
 	public @ResponseBody Iterable<Photo> getPhotosBatiment(@PathVariable Integer bat_id){
+		
+		
 		Batiment b = new Batiment(bat_id);
+		//Batiment b = batimentRepository.findById(bat_id).get();
 		return photoRepository.findByBatiment(b);
+		
+		
+		
+		//	if (batimentRepository.findById(bat_id).isPresent()) {
+	//		System.out.println("present");
+	//		Batiment b = batimentRepository.findById(bat_id).get();
+	//		return photoRepository.findByBatiment(b);
+	//	}
+	//	else {
+	//		throw new BatimentIntrouvableException("Le batiment avec l'id " + bat_id + " n'existe pas.");
+	//	}
 	}
 	
 	
@@ -61,44 +85,63 @@ public class PhotoController {
 	 * ajout d'une photo 
 	 * @param titre
 	 * @param source
+	 * @param bat_id : l'id du batiment dont c'est la photo
 	 * @return un message qui indique que la photo a bien été ajoutée
 	 */
+	/*
 	@PostMapping("/")
-	public @ResponseBody String addNewhoto(
+	public @ResponseBody ResponseEntity<Object> addNewhoto (
 			@RequestParam String titre, @RequestParam String source,
-			@RequestParam Integer bat_id)
+			@RequestParam Integer bat_id) throws BatimentIntrouvableException
 	{
 		Photo p = new Photo();
 		p.setTitre(titre);
 		p.setSource(source);
-		Batiment b = new Batiment(bat_id);
-		p.setBatiment(b);		
-		photoRepository.save(p);
-		return "Added";
-	}
+		
+		//Batiment b = new Batiment(bat_id);
+		// verif du batiment
+		if (!batimentRepository.findById(bat_id).isPresent()) {
+			throw new BatimentIntrouvableException("Le batiment avec l'id " + bat_id + " n'existe pas.");
+		}
+		else {
+			Batiment b = batimentRepository.findById(bat_id).get();
+			p.setBatiment(b);
+			photoRepository.save(p);
+			return ResponseEntity.ok().build();
+		}
+	*/
 	
+	
+	/*
 	@PutMapping("/{id}")
-	public @ResponseBody String updatePhoto(
+	public @ResponseBody ResponseEntity<Object> updatePhoto(
 			@PathVariable Integer id, 
 			@RequestParam String titre, @RequestParam String source,
 			@RequestParam Integer bat_id)
 	{
-		Photo p = new Photo(id);
+		
+		//Photo p = new Photo(id);
+		Photo p = photoRepository.findById(id).get();
 		p.setTitre(titre);
 		p.setSource(source);
-		Batiment b = new Batiment(bat_id);
+		Batiment b = batimentRepository.findById(bat_id).get();
+		//Batiment b = new Batiment(bat_id);
 		p.setBatiment(b);
 		photoRepository.save(p);
-		return "Updated";
+		
+		return ResponseEntity.ok().build();
 	}	
+	*/
 	
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity <Photo> deletePhoto(@PathVariable int id) {
-		if (photoRepository.findById(id).isEmpty())  {
-			return ResponseEntity.badRequest().build();
+	public ResponseEntity <Photo> deletePhoto(@RequestParam int id) {
+		if (photoRepository.findById(id).isPresent())  {
+			photoRepository.deleteById(id);
+			return ResponseEntity.ok().build();
 		}
-		photoRepository.deleteById(id);
-		return ResponseEntity.ok().build();		
+		else {
+			return ResponseEntity.badRequest().build();
+		}		
 	} 
 }
