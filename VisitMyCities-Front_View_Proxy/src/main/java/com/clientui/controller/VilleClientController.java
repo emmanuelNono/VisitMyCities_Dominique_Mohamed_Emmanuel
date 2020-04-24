@@ -29,6 +29,8 @@ public class VilleClientController {
 		
 		List<VilleBean> villes = VilleProxy.listVilles();
 		
+		
+		
 			model.addAttribute("produits", villes);
 			
 //		for(VilleBean v: villes) {
