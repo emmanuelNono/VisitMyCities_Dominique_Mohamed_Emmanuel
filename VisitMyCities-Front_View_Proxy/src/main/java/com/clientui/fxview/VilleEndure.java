@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 
 import com.clientui.beans.ProductBean;
+import com.clientui.beans.VilleBean;
 
 import fr.testfx.personnes.model.Personne;
 import javafx.collections.FXCollections;
@@ -19,7 +20,7 @@ import javafx.scene.control.ListView;
 public class VilleEndure implements Initializable{
 
 	@FXML
-	public ComboBox<String> comboBoxVille;
+	public ComboBox<VilleBean> comboBoxVille;
 	
 	@FXML
 	public ListView<String> ListViewProduct;
@@ -28,27 +29,23 @@ public class VilleEndure implements Initializable{
 			"Espagne", "France", "Italie",
 			"Pays-Bas", "Portugal", "Suisse");
 	
-	private ObservableList<String> listVilleBean = FXCollections.observableArrayList();
+	
 	private ObservableList<ProductBean> product = FXCollections.observableArrayList();
 	
+	private ObservableList<VilleBean> listVilleBean = FXCollections.observableArrayList();
 	
+	private ObservableList<VilleBean> getListVille = FXCollections.observableArrayList(listVilleBean);
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		//comboBoxVille.setItems(listVille);
 	
-		Map<String, Integer>  map = new HashMap<>();
 		
-		for(Object prod: product) {
-			
-			System.out.println(" Titre produit " + prod.toString());
-			map.put(prod.toString(), 1);
-			
-		}
 		
-		comboBoxVille.setItems(listVilleBean);
-		//ListViewProduct.setItems();
+		
+		comboBoxVille.setItems(getListVille);
+	
 		
 		
 	}

@@ -30,11 +30,11 @@ public class VilleClientController {
 		
 			model.addAttribute("produits", villes);
 			
-		for(VilleBean v: villes) {
-			
-			System.out.println(" Prix produit " + v.getNomVille());
-			
-			}
+//		for(VilleBean v: villes) {
+//			
+//			System.out.println(" Prix produit " + v.getNomVille());
+//			
+//			}
 			
 	        return "Ville";
 	    }

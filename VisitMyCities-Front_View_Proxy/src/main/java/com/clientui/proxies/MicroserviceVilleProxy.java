@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.clientui.beans.VilleBean;
 
 	
-	public class MicroserviceVilleProxy {
-		@FeignClient(name = "microservice-ville", url = "localhost:9001")
-		public interface MicroserviceProduitsProxy {
+	
+	@FeignClient(name = "microservice-ville", url = "localhost:9001")
+	public interface MicroserviceVilleProxy {
 
 		
 		@GetMapping(value = "/Villes")
@@ -23,10 +23,7 @@ import com.clientui.beans.VilleBean;
 		
 		}
 
-		
-
-		
-	}
+	
 
 
 

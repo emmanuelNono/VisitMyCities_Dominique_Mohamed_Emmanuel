@@ -17,23 +17,10 @@ public class BatimentBean {
 	
 	
 	public BatimentBean() {
-		super();
+	
 		
 	}
-	public BatimentBean(Integer id, String nom, String adresse, String coord_gps_ns, String coord_gps_oe,
-			Integer annee_construction, String couleur, String description, String architecte, Integer ville) {
-		super();
-		this.id = id;
-		this.nom = nom;
-		this.adresse = adresse;
-		this.coord_gps_ns = coord_gps_ns;
-		this.coord_gps_oe = coord_gps_oe;
-		this.annee_construction = annee_construction;
-		this.couleur = couleur;
-		this.description = description;
-		this.architecte = architecte;
-		this.ville = ville;
-	}
+	
 	public Integer getId() {
 		return id;
 	}
