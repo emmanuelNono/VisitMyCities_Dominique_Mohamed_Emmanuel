@@ -64,8 +64,9 @@ public class PhotoController {
 	public @ResponseBody Iterable<Photo> getPhotosBatiment(@PathVariable Integer bat_id){
 		
 		
-		Batiment b = new Batiment(bat_id);
-		//Batiment b = batimentRepository.findById(bat_id).get();
+		//Batiment b = new Batiment(bat_id);
+		Batiment b = batimentRepository.findById(bat_id).get();
+		System.out.println(b.toString());
 		return photoRepository.findByBatiment(b);
 		
 		
