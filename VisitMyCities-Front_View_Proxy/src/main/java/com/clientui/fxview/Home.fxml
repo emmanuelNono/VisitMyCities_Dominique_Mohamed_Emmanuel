@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="605.0" layoutX="3.0" stroke="WHITE" strokeType="INSIDE" width="800.0" />
+      <ImageView fitHeight="75.0" fitWidth="73.0" layoutX="348.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Users/Elev/Documents/VisitMyCities/logo.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="659.0" layoutY="109.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="96.0" text="Rechercher" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a6aeb5" height="144.0" layoutX="103.0" layoutY="338.0" stroke="#a1a0a0" strokeType="INSIDE" width="163.0" />
+      <ImageView fitHeight="144.0" fitWidth="163.0" layoutX="103.0" layoutY="338.0" pickOnBounds="true" preserveRatio="true" />
+      <Text layoutX="284.0" layoutY="384.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, ." wrappingWidth="484.828125" />
+      <Button layoutX="656.0" layoutY="452.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="96.0" text="Plus de détails" />
+      <Text layoutX="284.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ville de Strasbourg - Cathédrale ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TreeTableView fx:id="tableview" layoutX="115.0" layoutY="146.0" prefHeight="103.0" prefWidth="541.0">
+        <columns>
+          <TreeTableColumn fx:id="id" prefWidth="75.0" text="Id" />
+          <TreeTableColumn fx:id="vil_nom" prefWidth="256.0" text="Nom" />
+            <TreeTableColumn fx:id="vil_cp" prefWidth="119.0" text="Code postal" />
+        </columns>
+      </TreeTableView>
+      <TextField fx:id="filterField" layoutX="115.0" layoutY="109.0" prefHeight="37.0" prefWidth="541.0" />
+   </children>
+</AnchorPane>

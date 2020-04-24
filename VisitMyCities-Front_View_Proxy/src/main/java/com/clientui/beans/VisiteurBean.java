@@ -1,16 +1,13 @@
-package fr.lpdaoo.mycities_dominique_nono.model;
+package com.clientui.beans;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
-@Entity
-public class Visiteur {
+
+
+
+public class VisiteurBean {
+
 	
-	@Id	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private Long id;
 	private String visNom;
 	private String visPrenom;
@@ -19,15 +16,15 @@ public class Visiteur {
 	private String visVille;
 	private String visEmail;
 	private String visMdp;
-	@ManyToOne	@JoinColumn(name = "idVille") 
 	private Ville ville; //correspond à la ville de la classe Ville
-
-	public Visiteur() {
+	
+	
+	
+	public VisiteurBean() {
 		super();
 		
 	}
-
-	public Visiteur(Long id, String visNom, String visPrenom, String visAdresse, int visCp, String visVille,
+	public VisiteurBean(Long id, String visNom, String visPrenom, String visAdresse, int visCp, String visVille,
 			String visEmail, String visMdp, Ville ville) {
 		super();
 		this.id = id;
@@ -40,84 +37,58 @@ public class Visiteur {
 		this.visMdp = visMdp;
 		this.ville = ville;
 	}
-
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 	public String getVisNom() {
 		return visNom;
 	}
-
 	public void setVisNom(String visNom) {
 		this.visNom = visNom;
 	}
-
 	public String getVisPrenom() {
 		return visPrenom;
 	}
-
 	public void setVisPrenom(String visPrenom) {
 		this.visPrenom = visPrenom;
 	}
-
 	public String getVisAdresse() {
 		return visAdresse;
 	}
-
 	public void setVisAdresse(String visAdresse) {
 		this.visAdresse = visAdresse;
 	}
-
 	public int getVisCp() {
 		return visCp;
 	}
-
 	public void setVisCp(int visCp) {
 		this.visCp = visCp;
 	}
-
 	public String getVisVille() {
 		return visVille;
 	}
-
 	public void setVisVille(String visVille) {
 		this.visVille = visVille;
 	}
-
 	public String getVisEmail() {
 		return visEmail;
 	}
-
 	public void setVisEmail(String visEmail) {
 		this.visEmail = visEmail;
 	}
-
 	public String getVisMdp() {
 		return visMdp;
 	}
-
 	public void setVisMdp(String visMdp) {
 		this.visMdp = visMdp;
 	}
-	
 	public Ville getVille() {
 		return ville;
 	}
-
-	public void setVille(Ville ville) {
+	public void setVille(Ville ville) { // faut il la connecter avec la class VilleBean
 		this.ville = ville;
 	}
-
-	@Override
-	public String toString() {
-		return "Visiteur [id=" + id + ", visNom=" + visNom + ", visPrenom=" + visPrenom + ", visAdresse=" + visAdresse
-				+ ", visCp=" + visCp + ", visVille=" + visVille + ", visEmail=" + visEmail + ", visMdp=" + visMdp
-				+ ", ville=" + ville + "]";
-	}
-
 }
