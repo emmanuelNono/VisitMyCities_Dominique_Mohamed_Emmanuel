@@ -37,3 +37,9 @@ VisitMyCities-Visiteur/target/*
 *.class
 VisitMyCities-Visiteur/target/classes/fr/lpdaoo/mycities_dominique_nono/controller/VisiteurController.class
 VisitMyCities-Visiteur/target/classes/fr/lpdaoo/mycities_dominique_nono/MycitiesDominiqueNonoApplication.class
+*.class
+*.class
+VisitMyCities-Visiteur/target/classes/fr/lpdaoo/mycities_dominique_nono/controller/VisiteurController.class
+VisitMyCities-Visiteur/target/classes/fr/lpdaoo/mycities_dominique_nono/MycitiesDominiqueNonoApplication.class
+VisitMyCities-Visiteur/target/classes/fr/lpdaoo/mycities_dominique_nono/model/Visiteur.class
+*.class

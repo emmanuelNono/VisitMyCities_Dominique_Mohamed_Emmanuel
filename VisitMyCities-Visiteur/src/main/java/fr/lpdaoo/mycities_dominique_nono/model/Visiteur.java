@@ -1,11 +1,14 @@
 package fr.lpdaoo.mycities_dominique_nono.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Visiteur {
@@ -19,8 +22,13 @@ public class Visiteur {
 	private String visVille;
 	private String visEmail;
 	private String visMdp;
+	
 	@ManyToOne	@JoinColumn(name = "idVille")
 	private Ville ville;
+	
+	@OneToMany(mappedBy = "visiteur")
+	private List<AVisiter> aVisiter;
+
 
 	public Visiteur() {
 		super();
@@ -112,6 +120,15 @@ public class Visiteur {
 	public void setVille(Ville ville) {
 		this.ville = ville;
 	}
+	
+
+//	public List<AVisiter> getaVisiter() {
+//		return aVisiter;
+//	}
+//
+//	public void setaVisiter(List<AVisiter> aVisiter) {
+//		this.aVisiter = aVisiter;
+//	}
 
 	@Override
 	public String toString() {

@@ -16,40 +16,40 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import fr.lpdaoo.mycities_dominique_nono.dao.VilleRepository;
-import fr.lpdaoo.mycities_dominique_nono.exceptions.VilleIntrouvableException;
-import fr.lpdaoo.mycities_dominique_nono.model.Ville;
+import fr.lpdaoo.mycities_dominique_nono.dao.AVisiterRepository;
+import fr.lpdaoo.mycities_dominique_nono.exceptions.AVisiterIntrouvableException;
+import fr.lpdaoo.mycities_dominique_nono.model.AVisiter;
 
 @Controller
-@RequestMapping(path = "/ville")
-public class VilleController {
+@RequestMapping(path = "/avisiter")
+public class AVisiterController {
 
 	@Autowired
-	VilleRepository villeRepository;
+	AVisiterRepository aVisiterRepository;
 
 	@GetMapping(value = "/")
-	public @ResponseBody Iterable<Ville> getAllVilles() {
-		return villeRepository.findAll();
+	public @ResponseBody Iterable<AVisiter> getAllAVisiter() {
+		return aVisiterRepository.findAll();
 	}
 
-	@GetMapping(value = "/{visId}")
-	public @ResponseBody Optional<Ville> getVille(@PathVariable(name = "visId") Long vilId)
-			throws VilleIntrouvableException {
+	@GetMapping(value = "/{aVisId}")
+	public @ResponseBody Optional<AVisiter> getAVisiter(@PathVariable(name = "aVisId") Long aVisId)
+			throws AVisiterIntrouvableException {
 
-		Optional<Ville> v = villeRepository.findById(vilId);
+		Optional<AVisiter> v = aVisiterRepository.findById(aVisId);
 
 		if (!v.isPresent())
-			throw new VilleIntrouvableException("Le villes " + vilId + " est introuvable");
+			throw new AVisiterIntrouvableException("La ligne a visiter numéro " + aVisId + " est introuvable");
 
 		return v;
 	}
 
 	@PostMapping(value = "/")
-	public @ResponseBody ResponseEntity<Void> addVille(@RequestBody Ville ville) {
+	public @ResponseBody ResponseEntity<Void> addAVisiter(@RequestBody AVisiter aVisiter) {
 
-		Ville v = villeRepository.save(ville);
+		AVisiter v = aVisiterRepository.save(aVisiter);
 
-		if (ville == null) {
+		if (aVisiter == null) {
 			return ResponseEntity.noContent().build();
 		}
 
@@ -59,11 +59,11 @@ public class VilleController {
 		return ResponseEntity.created(location).build();
 	}
 
-	@PutMapping(value = "/{vilId}")
-	public @ResponseBody ResponseEntity<Void> UpdateVille(@PathVariable Long vilId, @RequestBody Ville ville) {
+	@PutMapping(value = "/{aVisId}")
+	public @ResponseBody ResponseEntity<Void> UpdateAVisiter(@PathVariable Long aVisId, @RequestBody AVisiter aVisiter) {
 
-		ville.setId(vilId);
-		Ville v = villeRepository.save(ville);
+		aVisiter.setId(aVisId);
+		AVisiter v = aVisiterRepository.save(aVisiter);
 
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("").buildAndExpand(v.getId()).toUri();
@@ -71,13 +71,13 @@ public class VilleController {
 		return ResponseEntity.created(location).build();
 	}
 
-	@DeleteMapping("/{vilId}")
-	public ResponseEntity<Ville> deleteVille(@PathVariable Long vilId) {
-		if (villeRepository.findAll().size() < vilId) {
+	@DeleteMapping("/{aVisId}")
+	public ResponseEntity<AVisiter> deleteAVisiter(@PathVariable Long aVisId) {
+		if (aVisiterRepository.findAll().size() < aVisId) {
 			return ResponseEntity.badRequest().build();
 		}
 
-		villeRepository.deleteById(vilId);
+		aVisiterRepository.deleteById(aVisId);
 		
 		return ResponseEntity.ok().build();
 	}
