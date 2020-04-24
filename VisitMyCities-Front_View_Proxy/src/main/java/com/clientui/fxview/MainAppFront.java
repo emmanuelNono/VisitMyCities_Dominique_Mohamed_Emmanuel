@@ -5,10 +5,18 @@ import java.io.IOException;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class MainAppFront extends Application {
@@ -19,8 +27,12 @@ public class MainAppFront extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		stagePrincipal = primaryStage;
+		
+	
+		
 		//Ca ne vous rappelle pas une JFrame ?
 		stagePrincipal.setTitle("Application de gestion de personnes");
+		
 		
 		//Nous allons utiliser nos fichier FXML dans ces deux méthodes
 		initialisationConteneurPrincipal();
@@ -49,7 +61,7 @@ public class MainAppFront extends Application {
 	
 	private void initialisationContenu() {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(MainAppFront.class.getResource("Home.fxml"));
+		loader.setLocation(MainAppFront.class.getResource("Ville.fxml"));
 		try {
 			//Nous récupérons notre conteneur qui contiendra les données
 			//Pour rappel, c'est un AnchorPane...

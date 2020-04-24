@@ -10,7 +10,7 @@ import com.clientui.beans.VilleBean;
 
 	
 	
-	@FeignClient(name = "microservice-ville", url = "localhost:9001")
+	@FeignClient(name = "microservice-ville", url = "localhost:9092")
 	public interface MicroserviceVilleProxy {
 
 		
