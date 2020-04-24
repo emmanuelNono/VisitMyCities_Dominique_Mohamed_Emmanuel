@@ -1,6 +1,6 @@
-# Visit My Cities
+﻿# Visit My Cities
 
-## par Dominique SAUVIGNON, Emmanuel NONO et Mohamed BENKHALID
+## par Dominique SAUVIGNON, Emmanuel NONO et Mohammed BENKHALID
 
 ### Principe : plusieurs microservices qui font ensemble un projet global
 
