@@ -27,6 +27,6 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <ComboBox fx:id="comboBoxVille" layoutX="97.0" layoutY="109.0" prefHeight="37.0" prefWidth="559.0" />
+      <ComboBox fx:id="comboBoxVille" layoutX="142.0" layoutY="109.0" prefHeight="37.0" prefWidth="508.0" />
    </children>
 </AnchorPane>
