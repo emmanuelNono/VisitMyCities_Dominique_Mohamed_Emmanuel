@@ -35,4 +35,4 @@
 	  - /{id} (GET) => retourne les informations de la photo
 	  - / (POST) => ajout la photo avec les infos passées en paramètres
 	  - /{id}  (PUT) => modifie les informations de la photo dont l'id est passée dans l'url
-	  - /{id} (DELETE) => supprimer la photo dont l'id est passée dans l'url
+	  - /{id} (DELETE) => supprimer la photo dont l'id est passée en paramètres
