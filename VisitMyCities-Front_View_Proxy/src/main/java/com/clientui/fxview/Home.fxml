@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -29,13 +27,6 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <TreeTableView fx:id="tableview" layoutX="115.0" layoutY="146.0" prefHeight="103.0" prefWidth="541.0">
-        <columns>
-          <TreeTableColumn fx:id="id" prefWidth="75.0" text="Id" />
-          <TreeTableColumn fx:id="vil_nom" prefWidth="256.0" text="Nom" />
-            <TreeTableColumn fx:id="vil_cp" prefWidth="119.0" text="Code postal" />
-        </columns>
-      </TreeTableView>
-      <TextField fx:id="filterField" layoutX="115.0" layoutY="109.0" prefHeight="37.0" prefWidth="541.0" />
+      <ComboBox fx:id="comboBoxVille" layoutX="97.0" layoutY="109.0" prefHeight="37.0" prefWidth="559.0" />
    </children>
 </AnchorPane>
