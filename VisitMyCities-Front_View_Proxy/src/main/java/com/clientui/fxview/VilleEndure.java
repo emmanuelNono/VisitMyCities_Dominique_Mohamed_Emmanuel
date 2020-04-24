@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
 import com.clientui.beans.ProductBean;
 import com.clientui.beans.VilleBean;
 
-import fr.testfx.personnes.model.Personne;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

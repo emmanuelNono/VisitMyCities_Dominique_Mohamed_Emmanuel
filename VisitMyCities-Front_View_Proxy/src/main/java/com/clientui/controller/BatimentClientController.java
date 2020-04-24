@@ -17,9 +17,9 @@ public class BatimentClientController {
 	private MicroserviceBatimentsProxy BatimentProxy;
 	 
 	@RequestMapping("/")
-	 public String accueil(Model model){
+	 public String batiment(Model model){
 		
-		List<BatimentBean> batiment = BatimentProxy.getAllBatiments();
+		Iterable<BatimentBean> batiment = BatimentProxy.getAllBatiments();
 		
 			model.addAttribute("batiment", batiment);
 			

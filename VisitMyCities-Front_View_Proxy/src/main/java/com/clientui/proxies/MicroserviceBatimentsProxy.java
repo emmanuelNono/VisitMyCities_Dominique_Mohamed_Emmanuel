@@ -1,5 +1,5 @@
 package com.clientui.proxies;
-import java.util.List;
+
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +12,8 @@ import com.clientui.beans.BatimentBean;
 	@FeignClient(name = "microservice-batiment", url = "localhost:9090")
 	public interface MicroserviceBatimentsProxy {
 
-		@GetMapping("/all")
-		List<BatimentBean> getAllBatiments();
+		@GetMapping("/")
+		Iterable<BatimentBean> getAllBatiments();
 		
 		@GetMapping("/{bat_id}")
 		BatimentBean getBatiment(@PathVariable("bat_id") int bat_id);
