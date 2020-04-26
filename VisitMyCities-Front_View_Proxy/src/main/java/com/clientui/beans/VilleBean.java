@@ -2,20 +2,21 @@ package com.clientui.beans;
 
 import java.util.List;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.LongProperty;
+import javafx.beans.property.StringProperty;
+
 
 public class VilleBean {
 
-
-
-
-private Long id;
-private String vilNom;
-private int vilCp;
+private LongProperty id;
+private StringProperty vilNom;
+private IntegerProperty vilCp;
 
 private List<VisiteurBean> visiteurs;
 
 
-public VilleBean(Long id, String vilNom, int vilCp, List<VisiteurBean> visiteurs) {
+public VilleBean(LongProperty id, StringProperty vilNom, IntegerProperty vilCp, List<VisiteurBean> visiteurs) {
 	super();
 	this.id = id;
 	this.vilNom = vilNom;
@@ -28,27 +29,27 @@ public VilleBean() {
 	// TODO Auto-generated constructor stub
 }
 
-public Long getId() {
+public LongProperty getId() {
 	return id;
 }
 
-public void setId(Long id) {
+public void setId(LongProperty id) {
 	this.id = id;
 }
 
-public String getVilNom() {
+public StringProperty getVilNom() {
 	return vilNom;
 }
 
-public void setVilNom(String vilNom) {
+public void setVilNom(StringProperty vilNom) {
 	this.vilNom = vilNom;
 }
 
-public int getVilCp() {
+public IntegerProperty getVilCp() {
 	return vilCp;
 }
 
-public void setVilCp(int vilCp) {
+public void setVilCp(IntegerProperty vilCp) {
 	this.vilCp = vilCp;
 }
 

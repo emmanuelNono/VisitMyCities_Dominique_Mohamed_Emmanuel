@@ -8,22 +8,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.clientui.beans.VilleBean;
 
+import javafx.collections.ObservableList;
 	
+@FeignClient(name = "vmc-ville", url = "localhost:9091")
+public interface MicroserviceVilleProxy {
+	@GetMapping(value = "/ville/all")
+	public ObservableList<VilleBean> listVilles();
 	
-	@FeignClient(name = "microservice-ville", url = "localhost:9001")
-	public interface MicroserviceVilleProxy {
-
-		
-		@GetMapping(value = "/Villes")
-		public List<VilleBean> listVilles();
-		
-		@GetMapping(value = "/Ville/{id}")
-		VilleBean afficherUneVille(@PathVariable("id") int id);
-		
-		
-		}
-
-	
-
-
-
+	@GetMapping(value = "/Ville/{id}")
+	VilleBean afficherUneVille(@PathVariable("id") int id);	
+}

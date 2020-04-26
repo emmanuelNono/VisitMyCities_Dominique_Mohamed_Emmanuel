@@ -20,35 +20,27 @@ import javafx.scene.control.ListView;
 public class VilleEndure implements Initializable{
 
 	@FXML
-	public ComboBox<VilleBean> comboBoxVille;
+	public ComboBox<String> comboBoxVille;
 	
-	@FXML
-	public ListView<String> ListViewProduct;
+	//@FXML
+	//public ListView<String> ListViewProduct;
 
 	ObservableList<String> listVille  = FXCollections.observableArrayList("Allemagne", "Angleterre", "Belgique",
 			"Espagne", "France", "Italie",
 			"Pays-Bas", "Portugal", "Suisse");
+	private ObservableList<VilleBean> getListVille = FXCollections.observableArrayList();
+	
+	//private ObservableList<ProductBean> product = FXCollections.observableArrayList();
+	
+	//private ObservableList<VilleBean> listVilleBean = FXCollections.observableArrayList();
 	
 	
-	private ObservableList<ProductBean> product = FXCollections.observableArrayList();
-	
-	private ObservableList<VilleBean> listVilleBean = FXCollections.observableArrayList();
-	
-	private ObservableList<VilleBean> getListVille = FXCollections.observableArrayList(listVilleBean);
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		//comboBoxVille.setItems(listVille);
-	
-		
-		
-		
-		comboBoxVille.setItems(getListVille);
-	
+		comboBoxVille.setItems(listVille);
 		
 		
 	}
-
-	
 }
