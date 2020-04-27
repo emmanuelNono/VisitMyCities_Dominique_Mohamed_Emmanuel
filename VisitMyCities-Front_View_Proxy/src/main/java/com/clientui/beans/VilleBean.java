@@ -12,7 +12,6 @@ public class VilleBean {
 private LongProperty id;
 private StringProperty vilNom;
 private IntegerProperty vilCp;
-
 private List<VisiteurBean> visiteurs;
 
 

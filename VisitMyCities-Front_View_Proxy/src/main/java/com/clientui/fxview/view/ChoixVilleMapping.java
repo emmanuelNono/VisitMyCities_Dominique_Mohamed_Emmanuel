@@ -1,30 +1,24 @@
 package com.clientui.fxview.view;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.function.Predicate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.clientui.beans.VilleBean;
-import com.clientui.fxview.MainAppFront;
-import com.clientui.model.Villes;
 import com.clientui.proxies.MicroserviceVilleProxy;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
-import javafx.stage.Stage;
 
 public class ChoixVilleMapping {
+	// référence à notre champ combo qui aura la liste des ville de notre MSA
 	@FXML
-	//public ComboBox<VilleBean> comboBoxVilleBean;
-	public ComboBox<String> comboBoxVilleBean;
+	//private ComboBox<VilleBean> comboBoxVilleBean; // pour msa
+	private ComboBox<String> comboBoxVilleBean; // pour test en dur
 	
-	// référence à notre classe principae => pour récupérer les objects
-	private MainAppFront main;
-	
+	// le lien avec le msa
 	@Autowired
 	private MicroserviceVilleProxy mvp;
 	
@@ -36,40 +30,16 @@ public class ChoixVilleMapping {
 	private void initialize() {
 		System.out.println("dans initialize");
 		
+		// on affecte villes au champ Combo
+		// test en dur
+		ObservableList<String> listVille  = FXCollections.observableArrayList("Berlin", "Londres", "Bruxelles",
+				"Madrid", "Paris", "Malin",
+				"Amsterdam", "Lisbonne", "Bâle");
+		comboBoxVilleBean.setItems(listVille);
+		
+		// par msa
+		//ObservableList<VilleBean> villes;
+		//villes = (ObservableList<VilleBean>) mvp.getListeVilles();
+		//comboBoxVilleBean.setItems(villes);
 	}
-	
-	
-	// sera utilisée dans l'initalisation de l'ihm
-	// dans notre classe principale
-	public void setMainApp(MainAppFront m) {
-		this.main = m;
-		
-		// avec donnes des microservices
-		this.main = m;
-		//comboBoxVilleBean.setItems((ObservableList<VilleBean>) mvp.listVilles());
-		
-		// avec donnes en dur
-		/*
-		  ObservableList<String> listVille  = FXCollections.observableArrayList("Allemagne", "Angleterre", "Belgique",
-		 
-				"Espagne", "France", "Italie",
-				"Pays-Bas", "Portugal", "Suisse");
-				*/
-		
-		
-		//comboBoxVilleBean.setItems(main.getListOfVille());
-		//comboBoxVilleBean.setItems(Villes.values());
-		// on affecte à comboBoxVille ?
-		System.out.println("ici ?");
-		//ObservableList<VilleBean> villes = mvp.listVilles();
-		//System.out.println("nb ville : " + mvp.listVilles().get(0).toString());
-		//comboBoxVilleBean.setItems(mvp.listVilles());
-		/*
-		((Object) comboBoxVilleBean).setCellRenderer(new DefaultListCellRender() {
-								mvp.listVilles();	
-						});
-		*/
-	}
-
-	
 }

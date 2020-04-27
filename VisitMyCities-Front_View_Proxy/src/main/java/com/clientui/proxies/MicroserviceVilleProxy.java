@@ -10,10 +10,10 @@ import com.clientui.beans.VilleBean;
 
 import javafx.collections.ObservableList;
 	
-@FeignClient(name = "vmc-ville", url = "localhost:9091")
+@FeignClient(name = "vmc-ville", url = "127.0.0.1:9091")
 public interface MicroserviceVilleProxy {
 	@GetMapping(value = "/ville/all")
-	public ObservableList<VilleBean> listVilles();
+	ObservableList<VilleBean> getListeVilles();
 	
 	@GetMapping(value = "/Ville/{id}")
 	VilleBean afficherUneVille(@PathVariable("id") int id);	
