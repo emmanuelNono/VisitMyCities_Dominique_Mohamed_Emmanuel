@@ -1,4 +1,4 @@
-﻿# Visit My Cities
+# Visit My Cities
 
 ## par Dominique SAUVIGNON, Emmanuel NONO et Mohammed BENKHALID
 
@@ -11,8 +11,13 @@
 ### Pour démarrer :
 
 1. cloner le repository github
-2. import chaque projet du repository
-3. démarrer chaque projet en faisant une configuration de run avec :
+2. sous MySQL
+   1. créer la base de données : VisitMyCities
+   2. créer l'utilisateur et lui donner les droits sur la base crée : 
+      - username : VisitMyCities
+      - password : vmc_67-68
+3. import chaque projet du repository
+4. démarrer chaque projet en faisant une configuration de run avec :
    1. le projet en répertoire de base
    2. en goals : la commande suivante : clean install spring-boot:run
 
@@ -21,7 +26,7 @@
 
 - Microservice Batiment (fournir les informations des bâtiments et de leur photos) : port 9090
 	- /batiments
-		- / (GET)	=> retourne tous les batiments
+		- (GET)	=> retourne tous les batiments
 		- /{id} (GET) => retourne les informations correspondant au batiment avec l'id données dans l'url
 		- / (POST) ->ajoute le batîment avec les données fournies en paramètres
 		- /{id} (PUT) -> modifie le bâtiment
