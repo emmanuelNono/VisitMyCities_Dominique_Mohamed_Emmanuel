@@ -29,16 +29,17 @@ public class VilleClientController {
 		
 		List<VilleBean> villes = VilleProxy.listVilles();
 		
+		for(VilleBean v: villes) {
+			
+			System.out.println(" Prix produit " + v.getVilNom());
+			
+			}
+			
 		
 		
 			model.addAttribute("produits", villes);
 			
-//		for(VilleBean v: villes) {
-//			
-//			System.out.println(" Prix produit " + v.getNomVille());
-//			
-//			}
-			
+		
 	        return "Ville";
 	    }
 }
