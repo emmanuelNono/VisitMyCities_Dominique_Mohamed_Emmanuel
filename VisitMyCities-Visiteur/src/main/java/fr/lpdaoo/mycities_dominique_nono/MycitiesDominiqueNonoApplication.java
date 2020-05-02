@@ -31,7 +31,6 @@ public class MycitiesDominiqueNonoApplication implements CommandLineRunner {
 		Ville ville2 = villeDAO.save(new Ville(null, "Mulhouse", 68000));
 		Ville ville3 = villeDAO.save(new Ville(null, "Colmar", 68500));
 
-		
 		//Création de Visiteur
 		Visiteur visiteur1 = visiteurDAO.save(new Visiteur(null, "nomVisiteur1", "prenomVisiteur1", "Adr 1", (int)(Math.random()*5),  "CP 1", "email 1", "mdp 1", ville1));
 		Visiteur visiteur2 = visiteurDAO.save(new Visiteur(null, "nomVisiteur2", "prenomVisiteur2", "Adr 2", (int)(Math.random()*5),  "CP 2", "email 2", "mdp 2", ville2));
@@ -39,9 +38,9 @@ public class MycitiesDominiqueNonoApplication implements CommandLineRunner {
 		Visiteur visiteur4 = visiteurDAO.save(new Visiteur(null, "nomVisiteur4", "prenomVisiteur4", "Adr 4", (int)(Math.random()*5),  "CP 4", "email 4", "mdp 4", ville2));
 				
 		//Création de AVisiter
-		AVisiter aVisiter1 = aVisiterRepository.save(new AVisiter(null, visiteur1));
-		AVisiter aVisiter2 = aVisiterRepository.save(new AVisiter(null, visiteur4));
-		AVisiter aVisiter3 = aVisiterRepository.save(new AVisiter(null, visiteur4));
+		AVisiter aVisiter1 = aVisiterRepository.save(new AVisiter(null, 1, visiteur1));
+		AVisiter aVisiter2 = aVisiterRepository.save(new AVisiter(null, 2, visiteur4));
+		AVisiter aVisiter3 = aVisiterRepository.save(new AVisiter(null, 3, visiteur4));
 		
 		visiteurDAO.findAll().forEach(h -> {
 			System.out.println("nom " + h.getVisNom() + " prenom " + h.getVisPrenom() + " adresse " + h.getVisAdresse()

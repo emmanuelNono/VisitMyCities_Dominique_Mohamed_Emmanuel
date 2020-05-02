@@ -13,6 +13,8 @@ public class AVisiter {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	private int idBat;
+	
 	@ManyToOne	@JoinColumn(name = "idVis")
 	private Visiteur visiteur;
 
@@ -21,9 +23,10 @@ public class AVisiter {
 		// TODO Auto-generated constructor stub
 	}
 
-	public AVisiter(Long id, Visiteur visiteur) {
+	public AVisiter(Long id, int idBat, Visiteur visiteur) {
 		super();
 		this.id = id;
+		this.idBat = idBat;
 		this.visiteur = visiteur;
 	}
 
@@ -34,6 +37,14 @@ public class AVisiter {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	public int getIdBat() {
+		return idBat;
+	}
+
+	public void setIdBat(int idBat) {
+		this.idBat = idBat;
+	}
 
 	public Visiteur getVisiteur() {
 		return visiteur;
@@ -42,8 +53,6 @@ public class AVisiter {
 	public void setVisiteur(Visiteur visiteur) {
 		this.visiteur = visiteur;
 	}
-	
-	
 	
 	
 }
