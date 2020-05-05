@@ -12,7 +12,7 @@
 
 1. cloner le repository github
 2. sous MySQL
-   1. créer la base de données : VisitMyCities
+   1. créer la base de données : visitmycities
    2. créer l'utilisateur et lui donner les droits sur la base crée : 
       - username : VisitMyCities
       - password : vmc_67-68

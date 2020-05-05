@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_DATABASE: visitmycities
+      MYSQL_USER: VisitMyCities
+      MYSQL_PASSWORD: vmc_67-68
+    ports:
+      - 3306:3306
+
+  adminer_blog:
+    image: adminer
+    depends_on:
+      - db
+    ports:
+      - 86:8080
