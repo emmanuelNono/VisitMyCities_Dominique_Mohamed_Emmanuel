@@ -1,1 +1,12 @@
-/Users/dominiquesauvignon/dev-info/Java/eclipse-ws-lpdaoo/VisitMyCities_Dominique_Mohamed_Emmanuel/src/main/java/fr/lpdaoo/mycities_dominique_nono/MycitiesDominiqueNonoApplication.java
+/Users/dominiquesauvignon/dev-info/Java/eclipse-ws-lpdaoo/GitHub-MVC/VisitMyCities-Visiteur/src/main/java/fr/lpdaoo/mycities_dominique_nono/MycitiesDominiqueNonoApplication.java
+/Users/dominiquesauvignon/dev-info/Java/eclipse-ws-lpdaoo/GitHub-MVC/VisitMyCities-Visiteur/src/main/java/fr/lpdaoo/mycities_dominique_nono/controller/VisiteurController.java
+/Users/dominiquesauvignon/dev-info/Java/eclipse-ws-lpdaoo/GitHub-MVC/VisitMyCities-Visiteur/src/main/java/fr/lpdaoo/visitmycitiesVille/controller/VilleController.java
+/Users/dominiquesauvignon/dev-info/Java/eclipse-ws-lpdaoo/GitHub-MVC/VisitMyCities-Visiteur/src/main/java/fr/lpdaoo/mycities_dominique_nono/dao/VilleRepository.java
+/Users/dominiquesauvignon/dev-info/Java/eclipse-ws-lpdaoo/GitHub-MVC/VisitMyCities-Visiteur/src/main/java/fr/lpdaoo/mycities_dominique_nono/controller/VilleController.java
+/Users/dominiquesauvignon/dev-info/Java/eclipse-ws-lpdaoo/GitHub-MVC/VisitMyCities-Visiteur/src/main/java/fr/lpdaoo/mycities_dominique_nono/model/Visiteur.java
+/Users/dominiquesauvignon/dev-info/Java/eclipse-ws-lpdaoo/GitHub-MVC/VisitMyCities-Visiteur/src/main/java/fr/lpdaoo/mycities_dominique_nono/exceptions/VisiteurIntrouvableException.java
+/Users/dominiquesauvignon/dev-info/Java/eclipse-ws-lpdaoo/GitHub-MVC/VisitMyCities-Visiteur/src/main/java/fr/lpdaoo/visitmycitiesVille/modele/Ville.java
+/Users/dominiquesauvignon/dev-info/Java/eclipse-ws-lpdaoo/GitHub-MVC/VisitMyCities-Visiteur/src/main/java/fr/lpdaoo/mycities_dominique_nono/dao/VisiteurRepository.java
+/Users/dominiquesauvignon/dev-info/Java/eclipse-ws-lpdaoo/GitHub-MVC/VisitMyCities-Visiteur/src/main/java/fr/lpdaoo/mycities_dominique_nono/model/Ville.java
+/Users/dominiquesauvignon/dev-info/Java/eclipse-ws-lpdaoo/GitHub-MVC/VisitMyCities-Visiteur/src/main/java/fr/lpdaoo/visitmycitiesVille/dao/VilleDao.java
+/Users/dominiquesauvignon/dev-info/Java/eclipse-ws-lpdaoo/GitHub-MVC/VisitMyCities-Visiteur/src/main/java/fr/lpdaoo/mycities_dominique_nono/exceptions/VilleIntrouvableException.java

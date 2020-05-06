@@ -1,1 +1,12 @@
+fr/lpdaoo/visitmycitiesVille/dao/VilleDao.class
+fr/lpdaoo/mycities_dominique_nono/dao/VilleRepository.class
+fr/lpdaoo/mycities_dominique_nono/exceptions/VilleIntrouvableException.class
+fr/lpdaoo/mycities_dominique_nono/controller/VilleController.class
+fr/lpdaoo/mycities_dominique_nono/exceptions/VisiteurIntrouvableException.class
+fr/lpdaoo/mycities_dominique_nono/model/Ville.class
+fr/lpdaoo/visitmycitiesVille/modele/Ville.class
+fr/lpdaoo/mycities_dominique_nono/dao/VisiteurRepository.class
+fr/lpdaoo/mycities_dominique_nono/controller/VisiteurController.class
 fr/lpdaoo/mycities_dominique_nono/MycitiesDominiqueNonoApplication.class
+fr/lpdaoo/mycities_dominique_nono/model/Visiteur.class
+fr/lpdaoo/visitmycitiesVille/controller/VilleController.class
