@@ -20,11 +20,38 @@
       <java.version>1.8</java.version>
       <spring-cloud.version>Finchley.M8</spring-cloud.version>
    </properties>
+   
    <dependencies>
-      <!-- <dependency>
-         <groupId>org.springframework.boot</groupId>
-         <artifactId>spring-boot-starter-thymeleaf</artifactId>
-      </dependency> -->
+    
+   <dependency>
+    <groupId>org.openjfx</groupId>
+    <artifactId>javafx-graphics</artifactId>
+    <version>13</version>
+</dependency>
+      <!-- pour java fx -->
+      <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>11</version>
+        </dependency>
+      
+      
+      <!--  fin javafx -->
       <dependency>
          <groupId>org.springframework.boot</groupId>
          <artifactId>spring-boot-starter-web</artifactId>
@@ -43,6 +70,15 @@
          <artifactId>spring-boot-starter-test</artifactId>
          <scope>test</scope>
       </dependency>
+      <!--  pour junit -->
+      <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+      <!-- fin junit -->
+      
+      
    </dependencies>
    <dependencyManagement>
       <dependencies>
@@ -54,6 +90,7 @@
             <scope>import</scope>
          </dependency>
       </dependencies>
+      
    </dependencyManagement>
    <build>
       <plugins>

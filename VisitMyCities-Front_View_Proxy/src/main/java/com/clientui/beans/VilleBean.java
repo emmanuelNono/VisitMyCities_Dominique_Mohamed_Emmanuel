@@ -64,8 +64,4 @@ public void setVisiteurs(List<VisiteurBean> visiteurs) {
 public String toString() {
 	return "VilleBean [id=" + id + ", vilNom=" + vilNom + ", vilCp=" + vilCp + "]";
 }
-
-
-
-
 }

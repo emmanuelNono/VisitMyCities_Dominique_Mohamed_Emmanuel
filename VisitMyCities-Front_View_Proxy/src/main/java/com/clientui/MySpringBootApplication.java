@@ -2,6 +2,7 @@ package com.clientui;
 
 import javafx.application.Application;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 import com.clientui.fxview.MainAppFront;
 
@@ -12,10 +13,12 @@ import com.clientui.fxview.MainAppFront;
  *
  */
 @SpringBootApplication
-public class MySpringBootApplication {
+@EnableFeignClients(basePackages = "com.clientui.proxies")
+public class MySpringBootApplication{
 	public static void main(String[] args) {
 		// on lance l'application JavaFX
-		System.out.println("lancement de notre SpringBootApplication");
 		Application.launch(MainAppFront.class, args);
 	}
+
+	
 }

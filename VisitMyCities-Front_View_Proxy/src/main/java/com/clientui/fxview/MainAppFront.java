@@ -1,6 +1,7 @@
 package com.clientui.fxview;
 
 import java.io.IOException;
+import java.net.URL;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -9,84 +10,119 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 import com.clientui.MySpringBootApplication;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Dialog;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import net.rgielen.fxweaver.core.FxWeaver;
 
-@SpringBootApplication
-@EnableFeignClients
 public class MainAppFront extends Application {
-
-	private ConfigurableApplicationContext applicationcontext;
-	private Stage stagePrincipal;
-	private BorderPane conteneurPrincipal;
-	/*
-	@FXML
-	public ComboBox<String> comboBoxVille; 
-	MicroserviceVilleProxy mvp;
+	private static ConfigurableApplicationContext applicationcontext;
 	
-	*/
+	//private Stage stagePrincipal;
+	//private BorderPane conteneurPrincipal;
+	
+	private Stage stage;
+	
+	//@FXML
+	//public ComboBox<String> comboBoxVille; 
+	//MicroserviceVilleProxy mvp;
+	
 	@Override
-	public void start(Stage primaryStage) {
-		System.out.println("dans JavaFX : start");
-		String[] args = getParameters().getRaw().toArray( new String[0]);
-		this.applicationcontext = new SpringApplicationBuilder()
-											.sources(MySpringBootApplication.class)
-											.run(args);
-		
+	public void init() {
+	 	String[] args = getParameters().getRaw().toArray(new String[0]);
+	 	this.applicationcontext = new SpringApplicationBuilder()
+	 			.sources(MySpringBootApplication.class)
+	 			.run(args);
+	}
+	
+	@Override
+	public void start(Stage stage) throws Exception {
 		// on définit le stage
-		stagePrincipal = primaryStage;
-		stagePrincipal.setTitle("LP DAOO - VisitMyCities");
+		//stagePrincipal = primaryStage;
+		//stagePrincipal.setTitle("LP DAOO - VisitMyCities");
 		
 		// le conteneur
-		initialisationConteneurPrincipal();
+		//initialisationConteneurPrincipal();
 		// le contenu
-		initialisationContenu();
+		//initialisationContenu();
+		
+		FXMLLoader loader = new FXMLLoader();
+		URL xmlUrl = getClass().getResource("/fx/Home.fxml");
+		loader.setLocation(xmlUrl);
+		
+		try {
+			Parent root = loader.load();
+			Scene scene = new Scene(root);
+			stage.setScene(scene);
+			stage.setWidth(800);
+			stage.setHeight(600);
+			stage.setTitle("Visit My Cities : Dominique, Emmanuel et Mohamed");
+			stage.show();
+		}
+		catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		
 	}
 
+	
+	/*
 	private void initialisationConteneurPrincipal() {
 		// on va chercher le fxml
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(MainAppFront.class.getResource("view/Menu.fxml"));
+		URL xmlUrl = getClass().getResource("/fx/Menu.fxml");
+		//loader.setLocation(MainAppFront.class.getResource("/fx/Menu.fxml"));
+		loader.setLocation(xmlUrl);
 		
-		try {
+	/*	try {
+			
 			// on passe par Spring
 			//Parent root = loader.load();
 			
 			//Le chargement nous donne notre conteneur
-			conteneurPrincipal = (BorderPane) loader.load();
+			
+			//conteneurPrincipal = (BorderPane) loader.load();
 			
 			// on affecte la scene au stage
 			// on passe par Spring
-			FxWeaver fxWeaver = applicationcontext.getBean(FxWeaver.class);
-			Parent root = fxWeaver.loadView(MainAppFront.class);
+			//FxWeaver fxWeaver = applicationcontext.getBean(FxWeaver.class);
+			//Parent root = fxWeaver.loadView(MainAppFront.class);
+			
+			Parent conteneurPrincipal = loader.load();
 			
 			//On définit une scène principale avec notre conteneur
-			//Scene scene = new Scene(conteneurPrincipal);
+		//	Scene scene = new Scene(conteneurPrincipal);
 
+			// on assigne la scene
 			// on passe par Spring
-			Scene scene = new Scene(root);
+			//Scene scene = new Scene(root);
+			// directement
+		//	stagePrincipal.setScene(scene);
 			
-			stagePrincipal.setScene(scene);
 			// on personnalise le stage
-			stagePrincipal.setWidth(800);
-			stagePrincipal.setHeight(600);
+		//	stagePrincipal.setWidth(800);
+		//	stagePrincipal.setHeight(600);
 			// on la rend visible
-			stagePrincipal.show();
+		//	stagePrincipal.show();
 			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		
 	}
+*/
 	
+	
+	/*
 	private void initialisationContenu() {
 		// on va chercher le fxml du contenu
 		FXMLLoader loader = new FXMLLoader();
@@ -95,33 +131,23 @@ public class MainAppFront extends Application {
 			// on récupère le chargeur qui incluera les données => anchorpane
 			AnchorPane conteneurHome = (AnchorPane) loader.load();
 			// on ajout l'anchorpane conteurHome dans le borderpane conteneurPrincipal
-			conteneurPrincipal.setCenter(conteneurHome);
+			//conteneurHome.setCenter(conteneurHome);
 			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+	*/
 	
-
-	public static void main(String[] args) {
-		launch(args);
+	@Override
+	public void stop() {
+		this.applicationcontext.close();
 	}
 
+	/*
 	public Stage getStage() {
-		return this.stagePrincipal;
+		return this.root;
 	}
-	
-	public void init() {
-		System.out.println("dans JavaFX : init");
-		/*
-		  String[] args = getParameters().getRaw().toArray( new String[0]);
-		 
-		
-		this.applicationcontext = new SpringApplicationBuilder()
-										.sources(MySpringBootApplication.class)
-										.run(args);
-										
-										*/
-	}
+	*/
 }
