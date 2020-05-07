@@ -6,11 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.clientui.beans.VilleBean;
-import com.clientui.business.Ville;
-import com.clientui.fxview.MainAppFront;
-import com.clientui.proxies.MicroserviceVilleProxy;
-
+import fr.lpdaoo.VisitMyCitiesClientFX.ClientFX;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,11 +27,14 @@ public class ChoixVilleMapping {
 	//private MicroserviceVilleProxy mvp;
 	
 	// constructeur par défaut
-	/*
+	
+	private ClientFX main;
+	
+	
 	public ChoixVilleMapping(){
-		mvp = MainAppFront.getApplicationContext().getBean(MicroserviceVilleProxy.class);
+		//mvp = MainAppFront.getApplicationContext().getBean(MicroserviceVilleProxy.class);
 	}
-	*/
+	
 	
 	// initialisation avec nos données métiers
 	@FXML
@@ -59,5 +58,15 @@ public class ChoixVilleMapping {
 	//	List<Ville> villes = villebean.stream().map(v->new Ville(v)).collect(Collectors.toList());
 	//	ObservableList<Ville> villeObservable = FXCollections.observableArrayList(villes);
 	//	comboBoxVille.setItems(villeObservable);
+	}
+	
+	
+	/**
+	 * utilisée dans l'initialisation de l'ihm
+	 * @param mainApp
+	 */
+	
+	public void setMainApp(ClientFX mainApp) {
+		this.main = mainApp;
 	}
 }
