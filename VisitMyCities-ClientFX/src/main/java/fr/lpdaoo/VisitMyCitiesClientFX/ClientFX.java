@@ -47,7 +47,7 @@ public class ClientFX extends Application {
 			
 			// on lie la fenetre avec le controleur
 			ChoixVilleMapping controleur = loader.getController();
-			//controleur.setMainApp(this); -> soucis
+			controleur.setMainApp(this); //-> soucis
 			//stage.show();
 		}
 		catch(IOException e) {

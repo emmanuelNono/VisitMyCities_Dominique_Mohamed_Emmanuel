@@ -1,6 +1,5 @@
 package fr.lpdaoo.VisitMyCitiesClientFX.fx;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,15 +11,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.text.Text;
 import net.rgielen.fxweaver.core.FxmlView;
 
 @Component
 @FxmlView("Home.fxml")
 public class ChoixVilleMapping {
+	private ClientFX main;
+	
+	// on procèdre aux associations
 	// référence à notre champ combo qui aura la liste des ville de notre MSA
 	@FXML
 	//private ComboBox<Ville> comboBoxVille; // pour msa
-	private ComboBox<String> comboBoxVilleBean; // pour test en dur
+	private ComboBox<String> comboBoxVille; // pour test en dur
+	
+	@FXML
+	private Text texte;
 	
 	// le lien avec le msa
 	//@Autowired
@@ -28,7 +34,7 @@ public class ChoixVilleMapping {
 	
 	// constructeur par défaut
 	
-	private ClientFX main;
+	
 	
 	
 	public ChoixVilleMapping(){
@@ -46,7 +52,7 @@ public class ChoixVilleMapping {
 		ObservableList<String> listVille  = FXCollections.observableArrayList("Berlin", "Londres", "Bruxelles",
 				"Madrid", "Paris", "Malin",
 				"Amsterdam", "Lisbonne", "Bâle");
-		comboBoxVilleBean.setItems(listVille);
+		comboBoxVille.setItems(listVille);
 		
 		// par msa
 		//String jsonVilles = mvp.getListeVilles();
