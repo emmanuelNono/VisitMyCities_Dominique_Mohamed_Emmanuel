@@ -1,11 +1,19 @@
 package fr.lpdaoo.VisitMyCitiesClientFX.fx;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 
 import fr.lpdaoo.VisitMyCitiesClientFX.ClientFX;
+import fr.lpdaoo.VisitMyCitiesClientFX.model.bean.VilleBean;
+import fr.lpdaoo.VisitMyCitiesClientFX.client.MicroserviceVilleClient;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,6 +21,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.text.Text;
 import net.rgielen.fxweaver.core.FxmlView;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+
 
 @Component
 @FxmlView("Home.fxml")
@@ -30,23 +41,20 @@ public class ChoixVilleMapping {
 	
 	// le lien avec le msa
 	//@Autowired
-	//private MicroserviceVilleProxy mvp;
+	//private MicroserviceVilleClient mvp;
 	
-	// constructeur par défaut
+	private static final Logger log = LoggerFactory.getLogger(ChoixVilleMapping.class);
 	
+	VilleBean[] villesb;
 	
-	
-	
-	public ChoixVilleMapping(){
-		//mvp = MainAppFront.getApplicationContext().getBean(MicroserviceVilleProxy.class);
+	@Bean
+	public RestTemplate restTemplate(RestTemplateBuilder builder) {
+		return builder.build();
 	}
-	
 	
 	// initialisation avec nos données métiers
 	@FXML
 	private void initialize() {
-		//System.out.println("dans initialize");
-		
 		// on affecte villes au champ Combo
 		// test en dur
 		ObservableList<String> listVille  = FXCollections.observableArrayList("Berlin", "Londres", "Bruxelles",
@@ -54,18 +62,21 @@ public class ChoixVilleMapping {
 				"Amsterdam", "Lisbonne", "Bâle");
 		comboBoxVille.setItems(listVille);
 		
-		// par msa
-		//String jsonVilles = mvp.getListeVilles();
-		//ObservableList<VilleBean> villes;
-		//villes = (ObservableList<VilleBean>) mvp.getListeVilles();
-		//comboBoxVilleBean.setItems(villes);
-	//	List<VilleBean> villebean;
-	//	villebean = mvp.getListeVilles();
-	//	List<Ville> villes = villebean.stream().map(v->new Ville(v)).collect(Collectors.toList());
-	//	ObservableList<Ville> villeObservable = FXCollections.observableArrayList(villes);
-	//	comboBoxVille.setItems(villeObservable);
-	}
+	}	
 	
+	// en parsant le json
+	@Bean
+	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
+		return args -> {
+			villesb = restTemplate.
+					getForObject("http://127.0.0.1:9092/ville/all", VilleBean[].class);
+			//System.out.println("villes: \n"+ villes.toString());
+			System.out.println("villes : ");
+			for (VilleBean v : villesb) {
+				System.out.println(v.getVilNom());
+			}
+		};
+	}
 	
 	/**
 	 * utilisée dans l'initialisation de l'ihm

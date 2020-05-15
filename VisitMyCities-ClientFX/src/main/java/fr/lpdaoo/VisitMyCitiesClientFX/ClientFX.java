@@ -6,7 +6,9 @@ import java.net.URL;
 //import fr.lpdaoo.VisitMyCitiesClientFX.fx;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.stereotype.Component;
 
 import fr.lpdaoo.VisitMyCitiesClientFX.fx.ChoixVilleMapping;
 import javafx.application.Application;
@@ -15,6 +17,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
+@Component
+@EnableFeignClients("fr.lpdaoo.VisitMyCitiesClientFX.proxy") 
 public class ClientFX extends Application {
 	private ConfigurableApplicationContext applicationContext;
 	
@@ -58,5 +63,11 @@ public class ClientFX extends Application {
 	@Override
 	public void stop() {
 		this.applicationContext.close();
-	}	
+	}
+
+	/*
+	public static ConfigurableApplicationContext getApplicationContext() {
+		return this.applicationContext;
+	}
+	*/	
 }
