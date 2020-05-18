@@ -10,20 +10,11 @@ import com.clientui.beans.VilleBean;
 
 	
 	
-	@FeignClient(name = "microservice-ville", url = "localhost:9092")
-	public interface MicroserviceVilleProxy {
-
-		
-		@GetMapping(value = "/Villes")
-		public List<VilleBean> listVilles();
-		
-		@GetMapping(value = "/Ville/{id}")
-		VilleBean afficherUneVille(@PathVariable("id") int id);
-		
-		
-		}
-
+@FeignClient(name = "microservice-ville", url = "localhost:9092")
+public interface MicroserviceVilleProxy {
+	@GetMapping(value = "/ville/all")
+	public List<VilleBean> getListeVilles();
 	
-
-
-
+	@GetMapping(value = "/Ville/{id}")
+	VilleBean afficherUneVille(@PathVariable("id") int id);
+}
