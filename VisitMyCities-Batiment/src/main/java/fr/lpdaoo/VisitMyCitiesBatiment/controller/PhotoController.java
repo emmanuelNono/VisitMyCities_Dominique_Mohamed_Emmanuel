@@ -24,7 +24,7 @@ import fr.lpdaoo.VisitMyCitiesBatiment.model.DAO.BatimentRepository;
 import fr.lpdaoo.VisitMyCitiesBatiment.model.DAO.PhotoRepository;
 
 @RestController
-@RequestMapping(path="/photos")
+@RequestMapping(path="/pictures")
 public class PhotoController {
 	@Autowired
 	private PhotoRepository photoRepository;
@@ -35,7 +35,7 @@ public class PhotoController {
 	 * affichage de toutes les photos
 	 * @return toutes les photos sous forme d'un json
 	 */
-	@GetMapping("/")
+	@GetMapping("")
 	public @ResponseBody Iterable<Photo> getAllPhotos(){
 		return photoRepository.findAll();
 	}
@@ -60,7 +60,7 @@ public class PhotoController {
 	 * affichage des photos correspondant à un batiment
 	 * 
 	 */
-	@GetMapping("/batiment/{bat_id}")
+	@GetMapping("/buildings/{bat_id}")
 	public @ResponseBody Iterable<Photo> getPhotosBatiment(@PathVariable Integer bat_id){
 		
 		

@@ -22,7 +22,7 @@ import fr.lpdaoo.VisitMyCitiesBatiment.model.DAO.BatimentRepository;
 
 
 @RestController
-@RequestMapping(path="/batiments")
+@RequestMapping(path="/buildings")
 public class BatimentController {
 
 	@Autowired

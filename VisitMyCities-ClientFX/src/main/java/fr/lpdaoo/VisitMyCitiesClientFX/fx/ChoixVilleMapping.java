@@ -28,23 +28,21 @@ public class ChoixVilleMapping {
 	// on procèdre aux associations
 	// référence à notre champ combo qui aura la liste des ville de notre MSA
 	@FXML
-	//private ComboBox<VilleBean> comboBoxVille; // pour msa
 	private ComboBox<String> comboBoxVille; // pour test en dur
+	//private ComboBox<VilleBean> comboBoxVille; // pour msa
 	
 	@FXML
 	private Text texte;
 	
 	// le lien avec le msa
-	@Autowired
-	private MicroserviceVilleClient mvc;
+	//@Autowired
+	//private MicroserviceVilleClient mvc;
 	
 	private static final Logger log = LoggerFactory.getLogger(ChoixVilleMapping.class);
 	
 	// pour ligne de commande
 	VilleBean[] villesb;
 	
-	// pour msa
-	VilleBean[] ville_api;
 	
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
@@ -60,6 +58,7 @@ public class ChoixVilleMapping {
 				"Madrid", "Paris", "Malin",
 				"Amsterdam", "Lisbonne", "Bâle");
 		comboBoxVille.setItems(listVille);
+		
 		//ville_api = mvc.getListeVilles();
 		
 	}	
@@ -77,8 +76,12 @@ public class ChoixVilleMapping {
 			for (VilleBean v : villesb) {
 				System.out.println(v.getVilNom());
 			}
-			ObservableList<String> o_ville = FXCollections.observableArrayList(villesb.toString()); 
+			//ObservableList<String> o_ville = FXCollections.observableArrayList(villesb.toString()); 
 			//comboBoxVille.setItems(o_ville);
+			
+			//ville_api = mvc.getListeVilles();
+			
+			
 		};
 	}
 	
@@ -89,5 +92,9 @@ public class ChoixVilleMapping {
 	
 	public void setMainApp(ClientFX mainApp) {
 		this.main = mainApp;
+	}
+	
+	public void start() {
+		System.out.println("dans start");
 	}
 }
