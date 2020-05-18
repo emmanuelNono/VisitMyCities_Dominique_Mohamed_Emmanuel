@@ -32,7 +32,7 @@ public class BatimentController {
 	 * 
 	 * @return tous les bâtiments
 	 */
-	@GetMapping("/")
+	@GetMapping("")
 	public @ResponseBody Iterable<Batiment> getAllBatiments(){
 		return batimentRepository.findAll();
 	}

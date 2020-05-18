@@ -19,7 +19,6 @@ import javafx.stage.Stage;
 
 
 @Component
-@EnableFeignClients("fr.lpdaoo.VisitMyCitiesClientFX.proxy") 
 public class ClientFX extends Application {
 	private ConfigurableApplicationContext applicationContext;
 	

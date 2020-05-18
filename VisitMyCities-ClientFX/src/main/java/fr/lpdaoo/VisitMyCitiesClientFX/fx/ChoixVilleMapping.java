@@ -1,20 +1,15 @@
 package fr.lpdaoo.VisitMyCitiesClientFX.fx;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import fr.lpdaoo.VisitMyCitiesClientFX.ClientFX;
-import fr.lpdaoo.VisitMyCitiesClientFX.model.bean.VilleBean;
 import fr.lpdaoo.VisitMyCitiesClientFX.client.MicroserviceVilleClient;
-import javafx.beans.Observable;
+import fr.lpdaoo.VisitMyCitiesClientFX.model.bean.VilleBean;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -33,19 +28,23 @@ public class ChoixVilleMapping {
 	// on procèdre aux associations
 	// référence à notre champ combo qui aura la liste des ville de notre MSA
 	@FXML
-	//private ComboBox<Ville> comboBoxVille; // pour msa
+	//private ComboBox<VilleBean> comboBoxVille; // pour msa
 	private ComboBox<String> comboBoxVille; // pour test en dur
 	
 	@FXML
 	private Text texte;
 	
 	// le lien avec le msa
-	//@Autowired
-	//private MicroserviceVilleClient mvp;
+	@Autowired
+	private MicroserviceVilleClient mvc;
 	
 	private static final Logger log = LoggerFactory.getLogger(ChoixVilleMapping.class);
 	
+	// pour ligne de commande
 	VilleBean[] villesb;
+	
+	// pour msa
+	VilleBean[] ville_api;
 	
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder builder) {
@@ -61,12 +60,15 @@ public class ChoixVilleMapping {
 				"Madrid", "Paris", "Malin",
 				"Amsterdam", "Lisbonne", "Bâle");
 		comboBoxVille.setItems(listVille);
+		//ville_api = mvc.getListeVilles();
 		
 	}	
 	
 	// en parsant le json
 	@Bean
 	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
+		
+		//ville_api = mvc.getListeVilles();
 		return args -> {
 			villesb = restTemplate.
 					getForObject("http://127.0.0.1:9092/ville/all", VilleBean[].class);
@@ -75,6 +77,8 @@ public class ChoixVilleMapping {
 			for (VilleBean v : villesb) {
 				System.out.println(v.getVilNom());
 			}
+			ObservableList<String> o_ville = FXCollections.observableArrayList(villesb.toString()); 
+			//comboBoxVille.setItems(o_ville);
 		};
 	}
 	
