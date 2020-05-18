@@ -24,7 +24,7 @@ import fr.lpdaoo.VisitMyCitiesBatiment.model.DAO.BatimentRepository;
 import fr.lpdaoo.VisitMyCitiesBatiment.model.DAO.PhotoRepository;
 
 @RestController
-@RequestMapping(path="/photos")
+@RequestMapping(path="/pictures")
 public class PhotoController {
 	@Autowired
 	private PhotoRepository photoRepository;

@@ -22,7 +22,7 @@ import fr.lpdaoo.VisitMyCitiesBatiment.model.DAO.BatimentRepository;
 
 
 @RestController
-@RequestMapping(path="/batiments")
+@RequestMapping(path="/buildings")
 public class BatimentController {
 
 	@Autowired
@@ -32,7 +32,7 @@ public class BatimentController {
 	 * 
 	 * @return tous les bâtiments
 	 */
-	@GetMapping("/")
+	@GetMapping("")
 	public @ResponseBody Iterable<Batiment> getAllBatiments(){
 		return batimentRepository.findAll();
 	}
@@ -41,7 +41,6 @@ public class BatimentController {
 	 * @param id
 	 * @return le batiment dont l'id a été passé
 	 */
-	
 	@GetMapping("/{id}")
 	public Optional<Batiment> getBatiment(@PathVariable Integer id) throws BatimentIntrouvableException  {
 		Optional<Batiment> b = batimentRepository.findById(id);
