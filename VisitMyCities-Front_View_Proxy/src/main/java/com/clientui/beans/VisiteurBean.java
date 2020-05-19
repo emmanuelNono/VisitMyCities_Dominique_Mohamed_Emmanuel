@@ -16,7 +16,7 @@ public class VisiteurBean {
 	private String visVille;
 	private String visEmail;
 	private String visMdp;
-	private Ville ville; //correspond à la ville de la classe Ville
+	private VilleBean ville; //correspond à la ville de la classe Ville
 	
 	
 	
@@ -25,7 +25,7 @@ public class VisiteurBean {
 		
 	}
 	public VisiteurBean(Long id, String visNom, String visPrenom, String visAdresse, int visCp, String visVille,
-			String visEmail, String visMdp, Ville ville) {
+			String visEmail, String visMdp, VilleBean ville) {
 		super();
 		this.id = id;
 		this.visNom = visNom;
@@ -85,10 +85,10 @@ public class VisiteurBean {
 	public void setVisMdp(String visMdp) {
 		this.visMdp = visMdp;
 	}
-	public Ville getVille() {
+	public VilleBean getVille() {
 		return ville;
 	}
-	public void setVille(Ville ville) { // faut il la connecter avec la class VilleBean
+	public void setVille(VilleBean ville) { // faut il la connecter avec la class VilleBean
 		this.ville = ville;
 	}
 }
