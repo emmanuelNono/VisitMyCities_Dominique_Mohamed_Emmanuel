@@ -22,7 +22,9 @@
    2. en goals : la commande suivante : clean install spring-boot:run
 
 
-### Url des API :
+---------------------------------------------  API BATIMENT  -----------------------------------------------------------------
+
+### Url des API BATIMENT:
 
 - Microservice Batiment (fournir les informations des bâtiments et de leur photos) : port 9090
 	- /buildings
@@ -41,3 +43,26 @@
 	  - / (POST) => ajout la photo avec les infos passées en paramètres
 	  - /{id}  (PUT) => modifie les informations de la photo dont l'id est passée dans l'url
 	  - /{id} (DELETE) => supprimer la photo dont l'id est passée en paramètres
+	  
+---------------------------------------------  API VILLE  -----------------------------------------------------------------
+	  
+- VisitMyCities-Ville : Microservice qui génère une API RESTFUL pour la gestion des Villes (port 9092)
+  ## Pour démarrer :
+	La config est la meme que pour le microservice Batiment
+
+  ### Url de l'API VILLE:
+
+	- /Ville
+	
+	- GET	|  http://localhost:9092/ville/		=> retourne la liste des villes.
+	
+	- GET	|  http://localhost:9092/ville/{id}	=> retourne les informations sur une seule ville correspondant à {id}.
+	
+	- POST	|  http://localhost:9092/ville/		=> enregistre une ville dans la base avec les infos en parametre et retourne les
+								informations sur cette nouvelle vile http://localhost:9092/ville/{id}
+	
+	- PUT	|  http://localhost:9092/ville/{id}	=> Modifie une ville dans la base avec les infos en parametre et retourne les
+							informations sur la ville qui a été modifée http://localhost:9092/ville/{id}
+		
+	- DELETE|  http://localhost:9092/ville/{id}	=> Supprime la ville correspondant à {id} de la base de données.
+
