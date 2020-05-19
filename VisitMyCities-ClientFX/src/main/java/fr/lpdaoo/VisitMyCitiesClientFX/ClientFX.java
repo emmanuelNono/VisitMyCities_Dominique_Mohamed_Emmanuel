@@ -3,6 +3,8 @@ package fr.lpdaoo.VisitMyCitiesClientFX;
 import java.io.IOException;
 import java.net.URL;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 //import fr.lpdaoo.VisitMyCitiesClientFX.fx;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -10,7 +12,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
+import fr.lpdaoo.VisitMyCitiesClientFX.client.MicroserviceVilleClient;
 import fr.lpdaoo.VisitMyCitiesClientFX.fx.ChoixVilleMapping;
+import fr.lpdaoo.VisitMyCitiesClientFX.model.bean.VilleBean;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,12 +26,19 @@ import javafx.stage.Stage;
 public class ClientFX extends Application {
 	private ConfigurableApplicationContext applicationContext;
 	
+	@Autowired
+	private MicroserviceVilleClient mvc;
+	
+	VilleBean[] ville_api;
+	
+	
 	@Override
 	public void init() {
 		String args[] = getParameters().getRaw().toArray(new String [0]);
 		this.applicationContext = new SpringApplicationBuilder()
 				.sources(SpringBootVMCClientFxApplication.class)
 				.run(args);
+		
 	}
 	
 	@Override
@@ -51,8 +62,16 @@ public class ClientFX extends Application {
 			
 			// on lie la fenetre avec le controleur
 			ChoixVilleMapping controleur = loader.getController();
-			controleur.setMainApp(this); //-> soucis
-			//stage.show();
+			controleur.setMainApp(this); 
+			
+			// comboBox
+			// pour msa
+			//System.out.println("string :  " + mvc.getListeVilles().length);
+			//this.ville_api = mvc.getListeVilles();
+			
+			
+			// on affiche
+			stage.show();
 		}
 		catch(IOException e) {
 			e.printStackTrace();
