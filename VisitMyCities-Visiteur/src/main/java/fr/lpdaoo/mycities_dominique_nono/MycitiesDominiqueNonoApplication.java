@@ -26,7 +26,9 @@ public class MycitiesDominiqueNonoApplication implements CommandLineRunner {
 		Ville v1 = villeDAO.save(new Ville(null, "Strasbourg", 67000));
 		Ville v2 = villeDAO.save(new Ville(null, "Mulhouse", 68000));
 		Ville v3 = villeDAO.save(new Ville(null, "Colmar", 68500));
-
+		villeDAO.save(new Ville(null, "Las vegas", 666));
+		villeDAO.save(new Ville(null, "Munich", 600));
+		villeDAO.save(new Ville(null, "Chistmass", 2412));
 		
 		for (int i = 1; i < 5; i++) {
 			// String name = f.harryPotter().character();
