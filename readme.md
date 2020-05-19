@@ -25,7 +25,7 @@
 ### Url des API :
 
 - Microservice Batiment (fournir les informations des bâtiments et de leur photos) : port 9090
-	- /batiments
+	- /buildings
 		- (GET)	=> retourne tous les batiments
 		- /{id} (GET) => retourne les informations correspondant au batiment avec l'id données dans l'url
 		- / (POST) ->ajoute le batîment avec les données fournies en paramètres
@@ -34,7 +34,7 @@
 		  - avec les données passées en paramètres
 		- / (DELETE) -> supprime le bâtiment dont l'id est donnée dans l'url
 
-	- /photos
+	- /pictures
 
 	  - / (GET) => retourne toutes les photos
 	  - /{id} (GET) => retourne les informations de la photo
